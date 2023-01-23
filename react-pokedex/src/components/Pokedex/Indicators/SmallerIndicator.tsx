@@ -6,9 +6,9 @@ export const indicatorStyles = cva(
   {
     variants: {
       intent: {
-        red: 'from-red-500 via-pokedex-red to-red-500',
-        yellow: 'from-yellow-300 via-yellow-500 to-yellow-300',
-        green: 'from-green-400 via-green-600 to-green-from-green-400'
+        red: ['from-red-500 via-pokedex-red to-red-500'],
+        yellow: ['from-yellow-300 via-yellow-500 to-yellow-300'],
+        green: ['from-green-400 via-green-600 to-green-from-green-400']
       }
     },
     defaultVariants: {
