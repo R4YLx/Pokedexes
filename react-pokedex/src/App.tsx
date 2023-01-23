@@ -1,3 +1,4 @@
+import Pokedex from './components/Pokedex/Pokedex'
 import { useGetAllPokemon } from './hooks/useGetAllPokemon'
 import { useGetPokemon } from './hooks/useGetPokemon'
 
@@ -11,8 +12,8 @@ function App() {
   // console.log('allPokemon', allPokemon)
 
   return (
-    <div className="App">
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+    <div className="h-full">
+      <Pokedex />
     </div>
   )
 }
