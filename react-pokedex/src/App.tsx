@@ -1,19 +1,43 @@
+import Fuse from 'fuse.js'
+import { useEffect, useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import Pokedex from './components/Pokedex/Pokedex'
 import { useGetAllPokemon } from './hooks/useGetAllPokemon'
-import { useGetPokemon } from './hooks/useGetPokemon'
 
 function App() {
-  // const { data: pokemon } = useGetPokemon('mew')
+  const [searchParams, setSearchParams] = useSearchParams({ query: '' })
+  const query = searchParams.get('query')
+  const [searchResults, setSearchResults] = useState<IPokemon[] | undefined>(
+    undefined
+  )
+  const { data: allPokemon } = useGetAllPokemon()
 
-  // console.log('pokemon', pokemon)
+  const searchOptions = {
+    threshold: 0.45,
+    includeScore: true,
+    keys: ['name']
+  }
 
-  // const { data: allPokemon } = useGetAllPokemon()
+  const fuse = allPokemon ? new Fuse(allPokemon, searchOptions) : undefined
 
-  // console.log('allPokemon', allPokemon)
+  function onSearch(query: string) {
+    setSearchParams({ query: query })
+  }
+
+  useEffect(() => {
+    if (query) {
+      const result = fuse?.search(query).map((item) => item.item)
+      setSearchResults(result)
+    }
+  }, [query])
+
+  console.log('searchResults', searchResults)
+
+  console.log('allPokemon', allPokemon)
 
   return (
     <div className="h-full">
-      <Pokedex />
+      <Pokedex onSearch={onSearch} />
     </div>
   )
 }

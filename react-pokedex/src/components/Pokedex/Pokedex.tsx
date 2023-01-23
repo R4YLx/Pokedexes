@@ -7,7 +7,7 @@ import BlueIndicator from './Indicators/BlueIndicator'
 import SmallerIndicator from './Indicators/SmallerIndicator'
 import { PokedexProps } from './Pokedex.types'
 
-const Pokedex = ({ className }: PokedexProps) => {
+const Pokedex = ({ className, onSearch }: PokedexProps) => {
   return (
     <div
       className={`bg-gradient-to-br  from-pokedex-dark-red via-red-700 to-pokedex-dark-red border border-black h-full rounded-3xl ${className}`}
@@ -39,7 +39,7 @@ const Pokedex = ({ className }: PokedexProps) => {
           <DPad className="justify-self-end" />
         </div>
 
-        <SearchForm />
+        <SearchForm onSearch={onSearch} />
       </div>
     </div>
   )

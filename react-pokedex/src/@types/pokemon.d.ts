@@ -5,6 +5,9 @@ interface IPokemon {
   order?: number
   weight?: number
   moves?: PokemonMove[]
+  sprites?: {
+    front_default: string
+  }
   stats?: PokemonStat[]
   types?: PokemonType[]
   url?: string
