@@ -1,5 +1,6 @@
 import { HomeIcon, ArrowUturnLeftIcon } from '@heroicons/react/24/outline'
 import Button from '../Button'
+import DPad from '../DPad'
 import SearchForm from '../SearchForm'
 import Display from './Display'
 import BlueIndicator from './Indicators/BlueIndicator'
@@ -26,14 +27,18 @@ const Pokedex = ({ className }: PokedexProps) => {
         <Display className="mb-8" />
 
         {/* Button container */}
-        <div className="mb-8 flex items-center gap-4">
-          <Button intent="rounded" bgColor="grey" size="md">
-            <HomeIcon className="h-8 w-8" />
-          </Button>
+        <div className="mb-10 grid grid-cols-2 items-center">
+          <div className="flex items-center gap-4">
+            <Button intent="rounded" bgColor="grey" size="md">
+              <HomeIcon className="h-8 w-8" />
+            </Button>
 
-          <Button bgColor="blue">
-            <ArrowUturnLeftIcon className="h-6 w-6" />
-          </Button>
+            <Button bgColor="blue">
+              <ArrowUturnLeftIcon className="h-6 w-6" />
+            </Button>
+          </div>
+
+          <DPad className="justify-self-end" />
         </div>
 
         <SearchForm className="" />
