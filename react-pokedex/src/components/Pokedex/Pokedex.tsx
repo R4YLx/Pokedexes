@@ -12,22 +12,20 @@ const Pokedex = ({ className }: PokedexProps) => {
     <div
       className={`bg-gradient-to-br  from-pokedex-dark-red via-red-700 to-pokedex-dark-red border border-black h-full rounded-3xl ${className}`}
     >
-      {/* Indicator container */}
-      <div className="p-5 flex gap-4 mb-2">
-        <BlueIndicator />
+      {/* Wrapper */}
+      <div className="grid grid-rows-6 h-full p-5">
+        {/* Indicator container */}
+        <div className="flex gap-4 mb-2">
+          <BlueIndicator />
+          <SmallerIndicator intent={'red'} />
+          <SmallerIndicator intent={'yellow'} />
+          <SmallerIndicator intent={'green'} />
+        </div>
 
-        <SmallerIndicator intent={'red'} />
-
-        <SmallerIndicator intent={'yellow'} />
-
-        <SmallerIndicator intent={'green'} />
-      </div>
-
-      <main className="h-1/2 mx-6">
-        <Display className="mb-8" />
+        <Display className="mb-8 row-span-3" />
 
         {/* Button container */}
-        <div className="mb-10 grid grid-cols-2 items-center">
+        <div className="grid grid-cols-2 items-center mt-8">
           <div className="flex items-center gap-4">
             <Button intent="rounded" bgColor="grey" size="md">
               <HomeIcon className="h-8 w-8" />
@@ -41,8 +39,8 @@ const Pokedex = ({ className }: PokedexProps) => {
           <DPad className="justify-self-end" />
         </div>
 
-        <SearchForm className="" />
-      </main>
+        <SearchForm />
+      </div>
     </div>
   )
 }
