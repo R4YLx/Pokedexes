@@ -8,7 +8,11 @@ import BlueIndicator from './Indicators/BlueIndicator'
 import SmallerIndicator from './Indicators/SmallerIndicator'
 import { PokedexProps } from './Pokedex.types'
 
-const Pokedex = ({ className, onSearch }: PokedexProps) => {
+const Pokedex = ({
+  className,
+  onSearch,
+  renderedPokemonList
+}: PokedexProps) => {
   const navigate = useNavigate()
 
   return (
@@ -25,7 +29,7 @@ const Pokedex = ({ className, onSearch }: PokedexProps) => {
           <SmallerIndicator intent={'green'} />
         </div>
 
-        <Display className="mb-8 row-span-3" />
+        <Display className="mb-8 row-span-3" children={renderedPokemonList} />
 
         {/* Button container */}
         <div className="grid grid-cols-2 items-center mt-8">
