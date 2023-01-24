@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const useRenderPokemons = () => {
+const usePokemons = () => {
   const [data, setData] = useState<IPokemon[] | null>(null)
 
   function allOrSearchedPokemons(
@@ -14,24 +14,10 @@ const useRenderPokemons = () => {
     }
   }
 
-  function RenderPokemonList() {
-    return (
-      <ul className="m-2">
-        {data &&
-          data.map((pokemon) => (
-            <li key={pokemon.name} className="cursor-pointer">
-              {pokemon.name}
-            </li>
-          ))}
-      </ul>
-    )
-  }
-
   return {
-    data,
     allOrSearchedPokemons,
-    RenderPokemonList
+    data
   }
 }
 
-export default useRenderPokemons
+export default usePokemons

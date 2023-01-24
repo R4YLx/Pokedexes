@@ -1,9 +1,10 @@
 import { useEffect, useMemo } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { Route, Routes, useSearchParams } from 'react-router-dom'
 import Fuse from 'fuse.js'
 import Pokedex from './components/Pokedex/Pokedex'
 import { useGetAllPokemon } from './hooks/useGetAllPokemon'
-import useRenderPokemons from './hooks/useRenderPokemons'
+import usePokemon from './hooks/usePokemons'
+import HomePage from './pages/HomePage'
 
 function App() {
   const [searchParams, setSearchParams] = useSearchParams({ query: '' })
@@ -34,18 +35,20 @@ function App() {
     }
   }, [query, allPokemon])
 
-  const { data, allOrSearchedPokemons, RenderPokemonList } = useRenderPokemons()
+  const { allOrSearchedPokemons, data } = usePokemon()
 
   useEffect(() => {
+    // Shows all Pokemon or searched ones
     allOrSearchedPokemons(allPokemon, searchResults)
   }, [allPokemon, searchResults])
 
   return (
     <div className="h-full">
-      <Pokedex
-        onSearch={onSearch}
-        renderedPokemonList={<RenderPokemonList />}
-      />
+      <Pokedex onSearch={onSearch}>
+        <Routes>
+          <Route path="/" element={<HomePage data={data} />} />
+        </Routes>
+      </Pokedex>
     </div>
   )
 }
