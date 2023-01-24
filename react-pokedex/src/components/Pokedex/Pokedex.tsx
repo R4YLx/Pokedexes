@@ -1,4 +1,5 @@
 import { HomeIcon, ArrowUturnLeftIcon } from '@heroicons/react/24/outline'
+import { useNavigate } from 'react-router-dom'
 import Button from '../Button'
 import DPad from '../DPad'
 import SearchForm from '../SearchForm'
@@ -8,6 +9,8 @@ import SmallerIndicator from './Indicators/SmallerIndicator'
 import { PokedexProps } from './Pokedex.types'
 
 const Pokedex = ({ className, onSearch }: PokedexProps) => {
+  const navigate = useNavigate()
+
   return (
     <div
       className={`bg-gradient-to-br  from-pokedex-dark-red via-red-700 to-pokedex-dark-red border border-black h-full rounded-3xl ${className}`}
@@ -27,11 +30,16 @@ const Pokedex = ({ className, onSearch }: PokedexProps) => {
         {/* Button container */}
         <div className="grid grid-cols-2 items-center mt-8">
           <div className="flex items-center gap-4">
-            <Button intent="rounded" bgColor="grey" size="md">
+            <Button
+              intent="rounded"
+              bgColor="grey"
+              size="md"
+              onClick={() => navigate('/')}
+            >
               <HomeIcon className="h-8 w-8" />
             </Button>
 
-            <Button bgColor="blue">
+            <Button bgColor="blue" onClick={() => navigate(-1)}>
               <ArrowUturnLeftIcon className="h-6 w-6" />
             </Button>
           </div>
