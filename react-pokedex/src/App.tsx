@@ -1,19 +1,16 @@
-import Fuse from 'fuse.js'
-import { useEffect, useState } from 'react'
+import { useMemo } from 'react'
 import { useSearchParams } from 'react-router-dom'
+import Fuse from 'fuse.js'
 import Pokedex from './components/Pokedex/Pokedex'
 import { useGetAllPokemon } from './hooks/useGetAllPokemon'
 
 function App() {
   const [searchParams, setSearchParams] = useSearchParams({ query: '' })
   const query = searchParams.get('query')
-  const [searchResults, setSearchResults] = useState<IPokemon[] | undefined>(
-    undefined
-  )
   const { data: allPokemon } = useGetAllPokemon()
 
   const searchOptions = {
-    threshold: 0.45,
+    threshold: 0.5,
     includeScore: true,
     keys: ['name']
   }
@@ -24,16 +21,15 @@ function App() {
     setSearchParams({ query: query })
   }
 
-  useEffect(() => {
+  const searchResults = useMemo(() => {
     if (query) {
       const result = fuse?.search(query).map((item) => item.item)
-      setSearchResults(result)
+      return result
     }
-  }, [query])
-
-  console.log('searchResults', searchResults)
+  }, [query, allPokemon])
 
   console.log('allPokemon', allPokemon)
+  console.log('searchResults', searchResults)
 
   return (
     <div className="h-full">
