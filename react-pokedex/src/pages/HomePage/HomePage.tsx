@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { HomePageProps } from './HomePage.types'
 
 const HomePage = ({ data }: HomePageProps) => {
@@ -8,12 +9,11 @@ const HomePage = ({ data }: HomePageProps) => {
   return (
     <ul className="m-2">
       {data.map((pokemon) => (
-        <li
-          key={pokemon.name}
-          className="cursor-pointer hover:bg-green-700 p-2"
-        >
-          {pokemon.name}
-        </li>
+        <Link key={pokemon.name} to={`/pokemon/${pokemon.name}`}>
+          <li className="cursor-pointer hover:bg-green-700 p-2">
+            {pokemon.name}
+          </li>
+        </Link>
       ))}
     </ul>
   )

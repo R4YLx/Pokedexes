@@ -5,6 +5,7 @@ import Pokedex from './components/Pokedex/Pokedex'
 import { useGetAllPokemon } from './hooks/useGetAllPokemon'
 import usePokemon from './hooks/usePokemons'
 import HomePage from './pages/HomePage'
+import PokemonPage from './pages/PokemonPage'
 
 function App() {
   const [searchParams, setSearchParams] = useSearchParams({ query: '' })
@@ -47,6 +48,7 @@ function App() {
       <Pokedex onSearch={onSearch}>
         <Routes>
           <Route path="/" element={<HomePage data={data} />} />
+          <Route path="/pokemon/:id" element={<PokemonPage />} />
         </Routes>
       </Pokedex>
     </div>

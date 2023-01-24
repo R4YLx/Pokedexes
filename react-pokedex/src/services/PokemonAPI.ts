@@ -8,3 +8,10 @@ export async function getAllPokemon(): Promise<IPokemon[]> {
 
   return result.data.results
 }
+
+// get pokemon by id
+export async function getPokemon(id: string): Promise<IPokemon> {
+  const result = await axios.get(`pokemon/${id}`)
+
+  return result.data
+}
