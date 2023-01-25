@@ -10,11 +10,23 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.21",
+    "prettier": "2.8.3",
+    "tailwindcss": "^3.2.4",
     "typescript": "^4.9.4",
     "vite": "^4.0.3",
     "vite-plugin-solid": "^2.5.0"
   },
   "dependencies": {
-    "solid-js": "^1.6.6"
+    "@solidjs/router": "^0.7.0",
+    "@tanstack/solid-query": "^4.22.4",
+    "axios": "^1.2.4",
+    "cva": "npm:class-variance-authority@^0.4.0",
+    "fuse.js": "^6.6.2",
+    "sass": "^1.57.1",
+    "solid-heroicons": "^3.1.1",
+    "solid-js": "^1.6.6",
+    "tailwind-scrollbar-hide": "^1.1.7"
   }
 }
