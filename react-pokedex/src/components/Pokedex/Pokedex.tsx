@@ -18,7 +18,7 @@ const Pokedex = ({ className, onSearch, children }: PokedexProps) => {
       {/* Wrapper */}
       <div className="grid grid-rows-6 h-full p-5">
         {/* Indicator container */}
-        <div className="flex gap-4 mb-2">
+        <div className="flex gap-4">
           <BlueIndicator />
           <SmallerIndicator intent={'red'} />
           <SmallerIndicator intent={'yellow'} />
@@ -28,7 +28,7 @@ const Pokedex = ({ className, onSearch, children }: PokedexProps) => {
         <Display className="mb-8 row-span-3">{children}</Display>
 
         {/* Button container */}
-        <div className="grid grid-cols-2 items-center mt-8">
+        <div className="grid grid-cols-2 items-center mt-8 ml-8 md:ml-16">
           <div className="flex items-center gap-4">
             <Button
               intent="rounded"
@@ -44,10 +44,10 @@ const Pokedex = ({ className, onSearch, children }: PokedexProps) => {
             </Button>
           </div>
 
-          <DPad className="justify-self-end" />
+          <DPad className="justify-self-end mr-8 md:mr-16" />
         </div>
 
-        <SearchForm onSearch={onSearch} />
+        <SearchForm onSearch={onSearch} className="mx-8 md:mx-16" />
       </div>
     </div>
   )

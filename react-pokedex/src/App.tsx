@@ -50,7 +50,7 @@ function App() {
   }, [query, allPokemon])
 
   return (
-    <div className="h-full">
+    <div className="h-full md:max-w-3xl md:m-auto md:py-8">
       <Pokedex onSearch={onSearch}>
         <Routes>
           <Route path="/" element={<HomePage data={allPokemon} />} />

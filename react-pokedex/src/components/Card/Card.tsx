@@ -8,20 +8,20 @@ const Card = ({ data }: CardProps) => {
   }
 
   return (
-    <div className={`${styles.Root} flex flex-col gap-8`}>
+    <div className="flex flex-col justify-center gap-8 md:flex-row md:gap-16">
       {/* Image and basic info container */}
-      <div className="relative">
-        <h1 className="text-xl absolute top-0 bg-white bg-opacity-70 p-2 rounded-md">
-          {capitalizeFirstLetter(data.name)}
-        </h1>
-
+      <div className="relative max-w-xs max-h-96 md:self-start md:h-auto md:sticky md:top-0">
         <img
           src={data.sprites?.front_default}
           alt={data.name}
           className={`${styles.Root__image} image w-96`}
         />
 
-        <ul className="absolute bottom-0 right-0 bg-white bg-opacity-70 p-2 rounded-md">
+        <h1 className="text-xl absolute top-0 bg-white bg-opacity-70 p-2 rounded-md">
+          {capitalizeFirstLetter(data.name)}
+        </h1>
+
+        <ul className="absolute bottom-0 right-0 bg-white bg-opacity-70 p-2 rounded-md md:left-32 md:bottom-4">
           <li className="text-xs">Height: {data.height} dm</li>
           <li className="text-xs">Weight: {data.weight} hg</li>
         </ul>
@@ -33,7 +33,7 @@ const Card = ({ data }: CardProps) => {
           <ul className="flex flex-col">
             {data.types?.map((type, i) => (
               <li key={i} className="text-xs my-1">
-                {type.type.name}
+                {capitalizeFirstLetter(type.type.name)}
               </li>
             ))}
           </ul>
@@ -45,7 +45,7 @@ const Card = ({ data }: CardProps) => {
           <ul className="flex flex-col">
             {data.stats?.map((stat, i) => (
               <li key={i} className="text-xs my-1">
-                {stat.stat.name}: {stat.base_stat}
+                {capitalizeFirstLetter(stat.stat.name)}: {stat.base_stat}
               </li>
             ))}
           </ul>
@@ -56,7 +56,7 @@ const Card = ({ data }: CardProps) => {
           <ul className="flex flex-col">
             {data.moves?.slice(0, 5).map((move, i) => (
               <li key={i} className="text-xs my-1">
-                {i + 1}.{move.move.name}
+                {i + 1}.{capitalizeFirstLetter(move.move.name)}
               </li>
             ))}
           </ul>
