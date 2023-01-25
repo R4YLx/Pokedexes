@@ -22,7 +22,7 @@ const Card = ({ data }: CardProps) => {
         </h1>
 
         <ul className="absolute bottom-0 right-0 bg-white bg-opacity-70 p-2 rounded-md md:left-32 md:bottom-4">
-          <li className="text-xs">Height: {data.height} dm</li>
+          <li className="text-xs mb-2">Height: {data.height} dm</li>
           <li className="text-xs">Weight: {data.weight} hg</li>
         </ul>
       </div>
