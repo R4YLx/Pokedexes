@@ -1,5 +1,5 @@
 import type { Component } from 'solid-js'
-import { useGetAllPokemon } from './hooks/useGetAllPokemon'
+import { useGetAllPokemon } from '@hooks/useGetAllPokemon'
 
 const App: Component = () => {
   const { data } = useGetAllPokemon()
