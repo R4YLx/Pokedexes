@@ -7,14 +7,14 @@ import {
   useSearchParams
 } from 'react-router-dom'
 import Fuse from 'fuse.js'
-import Pokedex from './components/Pokedex/Pokedex'
-import { useGetAllPokemon } from './hooks/useGetAllPokemon'
-import HomePage from './pages/HomePage'
-import PokemonPage from './pages/PokemonPage'
-import SearchPage from './pages/SearchPage'
+import Pokedex from '@components/Pokedex'
+import { useGetAllPokemon } from '@hooks/useGetAllPokemon'
+import HomePage from '@pages/HomePage'
+import PokemonPage from '@pages/PokemonPage'
+import SearchPage from '@pages/SearchPage'
 
 function App() {
-  const [searchParams, setSearchParams] = useSearchParams({ query: '' })
+  const [searchParams] = useSearchParams()
   const query = searchParams.get('query')
 
   const { data: allPokemon } = useGetAllPokemon()

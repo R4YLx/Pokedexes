@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom'
-import { useGetPokemon } from '../../hooks/useGetPokemon'
+import Card from '@components/Card'
+import { useGetPokemon } from '@hooks/useGetPokemon'
 
 const PokemonPage = () => {
   const { id } = useParams()
@@ -10,9 +11,11 @@ const PokemonPage = () => {
 
   const { data } = useGetPokemon(id)
 
-  // console.log('data', data)
-
-  return <div className="m-2">PokemonPage</div>
+  return (
+    <div className="m-2">
+      <Card data={data} />
+    </div>
+  )
 }
 
 export default PokemonPage
