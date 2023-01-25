@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 import { capitalizeFirstLetter } from '../../utils/helpers'
-import { HomePageProps } from './HomePage.types'
+import { SearchPageProps } from './SearchPage.types'
 
-const HomePage = ({ data }: HomePageProps) => {
+const SearchPage = ({ data }: SearchPageProps) => {
   if (!data) {
     return null
   }
@@ -20,4 +20,4 @@ const HomePage = ({ data }: HomePageProps) => {
   )
 }
 
-export default HomePage
+export default SearchPage

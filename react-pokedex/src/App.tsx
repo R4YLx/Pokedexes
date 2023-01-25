@@ -1,16 +1,24 @@
-import { useEffect, useMemo } from 'react'
-import { Route, Routes, useSearchParams } from 'react-router-dom'
+import { useMemo } from 'react'
+import {
+  createSearchParams,
+  Route,
+  Routes,
+  useNavigate,
+  useSearchParams
+} from 'react-router-dom'
 import Fuse from 'fuse.js'
 import Pokedex from './components/Pokedex/Pokedex'
 import { useGetAllPokemon } from './hooks/useGetAllPokemon'
-import usePokemon from './hooks/usePokemons'
 import HomePage from './pages/HomePage'
 import PokemonPage from './pages/PokemonPage'
+import SearchPage from './pages/SearchPage'
 
 function App() {
   const [searchParams, setSearchParams] = useSearchParams({ query: '' })
   const query = searchParams.get('query')
+
   const { data: allPokemon } = useGetAllPokemon()
+  const navigate = useNavigate()
 
   // Options for Fuse.js search
   const searchOptions = {
@@ -24,7 +32,12 @@ function App() {
 
   // Callback func for search
   function onSearch(query: string) {
-    setSearchParams({ query: query })
+    navigate({
+      pathname: '/search',
+      search: `?${createSearchParams({
+        query: query
+      })}`
+    })
   }
 
   // Keeps searched results on re-render
@@ -36,19 +49,13 @@ function App() {
     }
   }, [query, allPokemon])
 
-  const { allOrSearchedPokemons, data } = usePokemon()
-
-  useEffect(() => {
-    // Shows all Pokemon or searched ones
-    allOrSearchedPokemons(allPokemon, searchResults)
-  }, [allPokemon, searchResults])
-
   return (
     <div className="h-full">
       <Pokedex onSearch={onSearch}>
         <Routes>
-          <Route path="/" element={<HomePage data={data} />} />
+          <Route path="/" element={<HomePage data={allPokemon} />} />
           <Route path="/pokemon/:id" element={<PokemonPage />} />
+          <Route path="/search" element={<SearchPage data={searchResults} />} />
         </Routes>
       </Pokedex>
     </div>

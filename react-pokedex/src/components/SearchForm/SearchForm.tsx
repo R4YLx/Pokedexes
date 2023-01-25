@@ -12,7 +12,6 @@ const SearchForm = ({ className, onSearch, ...rest }: SearchFormProps) => {
     if (!inputRef.current?.value.length) {
       return null
     }
-
     onSearch(inputRef.current.value)
     inputRef.current.value = ''
   }
@@ -28,6 +27,7 @@ const SearchForm = ({ className, onSearch, ...rest }: SearchFormProps) => {
         placeholder="Search for a Pokémon"
         className="rounded-md h-10 indent-2 bg-green-600 border border-black placeholder-stone-700 w-full"
         ref={inputRef}
+        // onClick={redirectToSearch}
       />
 
       <Button type="submit" bgColor="yellow">

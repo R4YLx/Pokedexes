@@ -10,7 +10,7 @@ const PokemonPage = () => {
 
   const { data } = useGetPokemon(id)
 
-  console.log('data', data)
+  // console.log('data', data)
 
   return <div className="m-2">PokemonPage</div>
 }

@@ -1,3 +1,3 @@
 export interface HomePageProps {
-  data: IPokemon[] | null
+  data: IPokemon[] | undefined
 }
