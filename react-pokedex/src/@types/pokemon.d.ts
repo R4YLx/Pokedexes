@@ -14,8 +14,10 @@ interface IPokemon {
 }
 
 interface PokemonMove {
-  name: string
-  url: string
+  move: {
+    name: string
+    url: string
+  }
 }
 
 interface PokemonStat {

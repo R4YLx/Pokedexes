@@ -9,10 +9,10 @@ const HomePage = ({ data }: HomePageProps) => {
 
   return (
     <ul className="m-2">
-      {data.map((pokemon) => (
+      {data.map((pokemon, i) => (
         <Link key={pokemon.name} to={`/pokemon/${pokemon.name}`}>
-          <li className="cursor-pointer hover:bg-green-700 p-2">
-            {capitalizeFirstLetter(pokemon.name)}
+          <li className="cursor-pointer hover:bg-green-700 p-2 text-sm">
+            {i + 1}.{capitalizeFirstLetter(pokemon.name)}
           </li>
         </Link>
       ))}

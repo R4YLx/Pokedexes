@@ -12,7 +12,7 @@ const PokemonPage = () => {
   const { data } = useGetPokemon(id)
 
   return (
-    <div className="m-2">
+    <div className="m-4">
       <Card data={data} />
     </div>
   )

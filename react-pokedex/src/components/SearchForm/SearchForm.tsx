@@ -25,7 +25,7 @@ const SearchForm = ({ className, onSearch, ...rest }: SearchFormProps) => {
       <input
         type="text"
         placeholder="Search for a Pokémon"
-        className="rounded-md h-10 indent-2 bg-green-600 border border-black placeholder-stone-700 w-full"
+        className="rounded-md h-10 indent-2 bg-green-600 border border-black placeholder-stone-700 w-full text-xs"
         ref={inputRef}
         // onClick={redirectToSearch}
       />
