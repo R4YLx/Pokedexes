@@ -1,5 +1,5 @@
 <script lang="ts">
-import { Icon, Home, ArrowSmLeft, type IconSource } from 'svelte-hero-icons'
+import { Home, ArrowSmLeft, Icon, type IconSource } from 'svelte-hero-icons'
 export let homeIcon: IconSource = Home
 export let arrowIcon: IconSource = ArrowSmLeft
 
@@ -7,6 +7,8 @@ import DPad from '@components/DPad'
 import Button from '@components/Button'
 import BlueIndicator from './Indicators/BlueIndicator.svelte'
 import SmallerIndicator from './Indicators/SmallerIndicator.svelte'
+import Display from './Display/Display.svelte'
+import SearchForm from '@components/SearchForm'
 </script>
 
 <div
@@ -21,7 +23,7 @@ import SmallerIndicator from './Indicators/SmallerIndicator.svelte'
       <SmallerIndicator intent="{'green'}" />
     </div>
 
-    <!-- <Display class="mb-8 row-span-3">{children}</Display> -->
+    <Display class="mb-8 row-span-3"><slot /></Display>
 
     <!-- Button container -->
     <div class="grid grid-cols-2 items-center mt-8 ml-8 md:ml-16">
@@ -38,6 +40,6 @@ import SmallerIndicator from './Indicators/SmallerIndicator.svelte'
       <DPad class="justify-self-end mr-8 md:mr-16" />
     </div>
 
-    <!-- <SearchForm onSearch={onSearch} class="mx-8 md:mx-16" /> -->
+    <SearchForm class="mx-8 md:mx-16" />
   </div>
 </div>
