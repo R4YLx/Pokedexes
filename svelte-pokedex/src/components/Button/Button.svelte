@@ -32,7 +32,9 @@ interface ButtonProps extends VariantProps<typeof buttonStyles> {}
 export let intent: ButtonProps['intent']
 export let bgColor: ButtonProps['bgColor']
 export let size: ButtonProps['size']
+
+export let type: 'button' | 'submit' | 'reset'
 </script>
 
-<button on:click class="{buttonStyles({ intent, bgColor, size })}"
+<button type="{type}" on:click class="{buttonStyles({ intent, bgColor, size })}"
   ><slot /></button>

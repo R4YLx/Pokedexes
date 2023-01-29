@@ -9,6 +9,9 @@ import BlueIndicator from './Indicators/BlueIndicator.svelte'
 import SmallerIndicator from './Indicators/SmallerIndicator.svelte'
 import Display from './Display/Display.svelte'
 import SearchForm from '@components/SearchForm'
+import { useNavigate } from 'svelte-navigator'
+
+const navigate = useNavigate()
 </script>
 
 <div
@@ -28,11 +31,21 @@ import SearchForm from '@components/SearchForm'
     <!-- Button container -->
     <div class="grid grid-cols-2 items-center mt-8 ml-8 md:ml-16">
       <div class="flex items-center gap-4">
-        <Button intent="rounded" bgColor="grey" size="md">
+        <Button
+          type="button"
+          intent="rounded"
+          bgColor="grey"
+          size="md"
+          on:click="{() => navigate('/')}">
           <Icon src="{homeIcon}" class="h-8 w-8" />
         </Button>
 
-        <Button bgColor="blue" size="sm" intent="squared">
+        <Button
+          type="button"
+          bgColor="blue"
+          size="sm"
+          intent="squared"
+          on:click="{() => navigate(-1)}">
           <Icon src="{arrowIcon}" class="h-6 w-6" />
         </Button>
       </div>

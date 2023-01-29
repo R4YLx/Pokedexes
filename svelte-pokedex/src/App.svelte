@@ -10,13 +10,21 @@ const queryClient = new QueryClient()
 </script>
 
 <QueryClientProvider client="{queryClient}">
-  <div class="h-full md:max-w-3xl md:m-auto md:py-8">
-    <Pokedex>
-      <Router>
-        <Route path="/" component="{HomePage}" />
-        <Route path="/pokemon/:id" component="{PokemonPage}" />
-        <Route path="/search" component="{SearchPage}" />
-      </Router>
-    </Pokedex>
-  </div>
+  <Router>
+    <div class="h-full md:max-w-3xl md:m-auto md:py-8">
+      <Pokedex>
+        <Route path="/" primary="{false}">
+          <HomePage />
+        </Route>
+
+        <Route path="/pokemon/:id" primary="{false}">
+          <PokemonPage />
+        </Route>
+
+        <Route path="/search" primary="{false}">
+          <SearchPage />
+        </Route>
+      </Pokedex>
+    </div>
+  </Router>
 </QueryClientProvider>

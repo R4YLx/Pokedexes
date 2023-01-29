@@ -11,7 +11,7 @@ export let searchIcon: IconSource = Search
     placeholder="Search for a Pokémon"
     class="rounded-md h-10 indent-2 bg-green-600 border border-black placeholder-stone-700 w-full text-xs" />
 
-  <Button intent="squared" bgColor="yellow" size="sm">
+  <Button type="submit" intent="squared" bgColor="yellow" size="sm">
     <Icon src="{searchIcon}" class="h-6 w-6" />
   </Button>
 </form>

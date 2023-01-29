@@ -1,9 +1,3 @@
-<style lang="scss">
-.image {
-  image-rendering: pixelated;
-}
-</style>
-
 <script lang="ts">
 import { capitalizeFirstLetter } from '@utils/helpers'
 
@@ -66,3 +60,9 @@ export let pokemon: IPokemon
     </div>
   </div>
 </div>
+
+<style lang="scss">
+.image {
+  image-rendering: pixelated;
+}
+</style>
