@@ -1,13 +1,9 @@
 <script lang="ts">
 import { Link } from 'svelte-navigator'
-import { getAllPokemon } from '@services/PokemonAPI'
-import { createQuery } from '@tanstack/svelte-query'
 import { capitalizeFirstLetter } from '@utils/helpers'
+import type { CreateQueryResult } from '@tanstack/svelte-query'
 
-const query = createQuery({
-  queryKey: ['pokemons'],
-  queryFn: () => getAllPokemon()
-})
+export let query: CreateQueryResult<IPokemon[], unknown>
 </script>
 
 <ul class="m-2">

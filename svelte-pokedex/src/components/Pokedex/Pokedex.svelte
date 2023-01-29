@@ -53,6 +53,6 @@ const navigate = useNavigate()
       <DPad class="justify-self-end mr-8 md:mr-16" />
     </div>
 
-    <SearchForm class="mx-8 md:mx-16" />
+    <SearchForm class="mx-8 md:mx-16" on:search />
   </div>
 </div>
