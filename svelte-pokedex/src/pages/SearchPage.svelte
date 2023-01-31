@@ -3,8 +3,6 @@ import { capitalizeFirstLetter } from '@utils/helpers'
 import { Link } from 'svelte-navigator'
 
 export let query: IPokemon[]
-
-console.log('query', query)
 </script>
 
 <ul class="m-2">

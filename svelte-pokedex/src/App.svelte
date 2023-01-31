@@ -13,6 +13,7 @@ const query = createQuery<IPokemon[]>({
   queryFn: () => getAllPokemon()
 })
 
+// Reacting to changes and setting data to variable
 $: allPokemon = $query.data
 
 // Options for Fuse.js search
@@ -30,12 +31,11 @@ $: fuse = allPokemon ? new Fuse(allPokemon, searchOptions) : undefined
 
 function handleMessage(e) {
   navigate('/search')
+  url.pathname = '/search'
   searchResults = fuse?.search(e.detail.query).map((item) => item.item)
   url.searchParams.set('query', e.detail.query)
   window.history.replaceState(null, '', url)
 }
-
-$: console.log('searchResults ', searchResults)
 </script>
 
 <div class="h-full md:max-w-3xl md:m-auto md:py-8">
