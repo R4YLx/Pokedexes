@@ -1,7 +1,7 @@
 import '@styles/index.scss'
-import AppWithTQuery from './AppWithTQuery.svelte'
+import Layout from './Layout.svelte'
 
-const app = new AppWithTQuery({
+const app = new Layout({
   target: document.getElementById('app')
 })
 
