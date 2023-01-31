@@ -2,9 +2,9 @@ import { Link } from 'react-router-dom'
 import { capitalizeFirstLetter } from '@utils/helpers'
 import { SearchPageProps } from './SearchPage.types'
 
-const SearchPage = ({ data }: SearchPageProps) => {
-  if (!data) {
-    return null
+const SearchPage = ({ data, searchQuery }: SearchPageProps) => {
+  if (!data?.length) {
+    return <p className="m-2">No results of {searchQuery}</p>
   }
 
   return (

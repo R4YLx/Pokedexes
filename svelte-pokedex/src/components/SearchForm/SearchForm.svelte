@@ -6,7 +6,7 @@ import { Search, Icon, type IconSource } from 'svelte-hero-icons'
 export let searchIcon: IconSource = Search
 let inputValue = ''
 
-const dispatch = createEventDispatcher()
+const dispatch = createEventDispatcher<{ search: { query: string } }>()
 
 function handleSubmit() {
   dispatch('search', {

@@ -25,11 +25,13 @@ const searchOptions = {
 
 const url = new URL(window.location.href)
 let searchResults: IPokemon[]
+let searchQuery: string
 
 // Initializing search func
 $: fuse = allPokemon ? new Fuse(allPokemon, searchOptions) : undefined
 
-function handleMessage(e) {
+function handleMessage(e: CustomEvent<{ query: string }>) {
+  searchQuery = e.detail.query
   navigate('/search')
   url.pathname = '/search'
   searchResults = fuse?.search(e.detail.query).map((item) => item.item)
@@ -50,7 +52,7 @@ function handleMessage(e) {
       </Route>
 
       <Route path="/search" primary="{false}">
-        <SearchPage query="{searchResults}" />
+        <SearchPage query="{searchResults}" searchQuery="{searchQuery}" />
       </Route>
     </Pokedex>
   </Router>

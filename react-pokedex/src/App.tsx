@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import {
   createSearchParams,
   Route,
@@ -16,6 +16,7 @@ import SearchPage from '@pages/SearchPage'
 function App() {
   const [searchParams] = useSearchParams()
   const query = searchParams.get('query')
+  const [searchQuery, setSearchQuery] = useState<string | null>(null)
 
   const { data: allPokemon } = useGetAllPokemon()
   const navigate = useNavigate()
@@ -32,6 +33,8 @@ function App() {
 
   // Callback func for search
   function onSearch(query: string) {
+    setSearchQuery(query)
+
     navigate({
       pathname: '/search',
       search: `?${createSearchParams({
@@ -55,7 +58,10 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage data={allPokemon} />} />
           <Route path="/pokemon/:id" element={<PokemonPage />} />
-          <Route path="/search" element={<SearchPage data={searchResults} />} />
+          <Route
+            path="/search"
+            element={<SearchPage data={searchResults} searchQuery={query} />}
+          />
         </Routes>
       </Pokedex>
     </div>
