@@ -10,7 +10,6 @@ This project is a Pokedex application built using four popular JavaScript framew
 ## Table of contents
 
 - [Built with](#built-with)
-- [Features](#features)
 - [Getting Started](#getting-started)
 - [Printscreens](#printscreens)
 
