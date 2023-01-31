@@ -10,10 +10,12 @@ const query = createQuery({
   queryKey: ['pokemon'],
   queryFn: () => getPokemon($params.id)
 })
+
+$: pokemon = $query.data
 </script>
 
 <div class="m-4">
-  {#if $query.isSuccess}
-    <Card pokemon="{$query.data}" />
+  {#if pokemon}
+    <Card pokemon="{pokemon}" />
   {/if}
 </div>
